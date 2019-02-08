@@ -17,7 +17,6 @@ echo -e "${PURPLE} Checking SSL certificate status...   ${NC}"
 echo -e "${PURPLE}----------------------------------------------------------------------------${NC}"
 echo ""
 
-
 # at first, we check if a ssl cert for astmanproxy is already existing. If not we will now generate one
 echo -e "${YELLOW}Checking for existing SSL certificate at /etc/asterisk/astmanproxy.pem${NC}"
 
@@ -25,7 +24,7 @@ if [ ! -f $CERTFILE ]; then \
 	echo -e "${RED}  --> Seems like there is no ssl cert. I will now create one for you now${NC}"
     echo ""
 	SERIAL=`date "+%Y%m%d%H%M%S"`; 
-	/usr/bin/openssl req -newkey rsa:1024 -keyout /tmp/astmanproxy-ssl.key -nodes -x509 -days 365 -out /tmp/astmanproxy-ssl.crt -set_serial $SERIAL -config /etc/asterisk/astmanproxy-ssl.conf
+	/usr/bin/openssl req -newkey rsa:$SSL_KEY_SIZE -keyout /tmp/astmanproxy-ssl.key -nodes -x509 -days 365 -out /tmp/astmanproxy-ssl.crt -set_serial $SERIAL -config /etc/asterisk/astmanproxy-ssl.conf
 	cat /tmp/astmanproxy-ssl.key /tmp/astmanproxy-ssl.crt >  /etc/asterisk/astmanproxy.pem
     rm /tmp/astmanproxy-ssl.*
 else
@@ -42,7 +41,7 @@ then
 	echo -e "${RED}  --> Seems like the existing cert will not be valid for the next 24 hours. Creating a new one now${NC}"
     echo ""
 	SERIAL=`date "+%Y%m%d%H%M%S"`; 
-	/usr/bin/openssl req -newkey rsa:1024 -keyout /tmp/astmanproxy-ssl.key -nodes -x509 -days 365 -out /tmp/astmanproxy-ssl.crt -set_serial $SERIAL -config /etc/asterisk/astmanproxy-ssl.conf
+	/usr/bin/openssl req -newkey rsa:$SSL_KEY_SIZE -keyout /tmp/astmanproxy-ssl.key -nodes -x509 -days 365 -out /tmp/astmanproxy-ssl.crt -set_serial $SERIAL -config /etc/asterisk/astmanproxy-ssl.conf
 	cat /tmp/astmanproxy-ssl.key /tmp/astmanproxy-ssl.crt >  /etc/asterisk/astmanproxy.pem
     rm /tmp/astmanproxy-ssl.*
 else

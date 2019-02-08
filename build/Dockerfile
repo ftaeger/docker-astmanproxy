@@ -44,6 +44,7 @@ RUN make && \
 FROM centos:7
 
 ENV ASTMANPROXY_PORT 1234
+ENV SSL_KEY_SIZE 1024
 
 # create needed directories
 RUN mkdir /etc/asterisk && \
@@ -59,6 +60,8 @@ COPY --from=build /usr/lib/astmanproxy/ /usr/lib/astmanproxy
 COPY ./astmanproxy.conf /etc/asterisk
 COPY ./astmanproxy.users /etc/asterisk
 COPY ./astmanproxy-ssl.conf /etc/asterisk
+
+VOLUME /etc/asterisk
 
 # Expose Default Port
 EXPOSE $ASTMANPROXY_PORT
