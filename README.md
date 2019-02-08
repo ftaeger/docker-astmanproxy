@@ -34,8 +34,8 @@ The content of /etc/asterisk will be hold in a volume per container so it persis
 # How to build/start the container
 
 1. Change to the "build" directory
-2. docker build -t astmanproxy:latest .
-3. docker run -d astmanproxy:latest
+2. `docker build -t astmanproxy:latest .`
+3. `docker run -d astmanproxy:latest`
 
 
 Beware: the Container will be build and then started. But it will exit after a few seconds. This is most probably as you've not replaced the config files and astmanproxy tries to connect to asterisk on localhost with invalid credentials. Be sure to throw in proper configs.  
