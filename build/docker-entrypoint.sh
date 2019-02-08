@@ -8,7 +8,7 @@ GREEN='\033[0;32m'
 PURPLE='\033[1;34m'
 NC='\033[0m'
 
-CERTFILE=/astmanproxy/astmanproxy.pem
+CERTFILE=/etc/asterisk/astmanproxy.pem
 
 
 echo ""
