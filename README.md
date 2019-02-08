@@ -38,13 +38,14 @@ The content of /etc/asterisk will be hold in a volume per container so it persis
 3. `docker run -d astmanproxy:latest`
 
 
-# How to mount a local directory into the container to access the config files
+
+# How to mount a local directory into the container to access the config files directly
 
 Run the container with a local directory mounted to /etc/asterisk:
 
 1. Create a directory on the docker host to hold your files. For example "/docker/docker-astmanproxy/config"
-2. There should be 3 files in this directory: astmanproxy.conf, astmanproxy.users and astmanproxy-ssl.conf - you can use the examples from the build directory. 
-3. If required also put the astmanproxy.pem file into this directory. If not it will just be created on the first container startup. I've added the command to have a 2048 bit key generated in the 4th step as an example ...
+2. There should be 3 files in this directory: astmanproxy.conf, astmanproxy.users and astmanproxy-ssl.conf - you can use the example files from the build directory. 
+3. If required also put the astmanproxy.pem file into this directory. If not it will just be created on the first container startup. I've added the command to have a 2048 bit SSL key generated in the 4th step for reference ...
 4. `docker run --name=astmanproxy -d -e "SSL_KEY_SIZE=2048" -v /docker/docker-astmanproxy/config:/etc/asterisk astmanproxy:latest`
 
 
