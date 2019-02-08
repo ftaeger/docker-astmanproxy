@@ -28,7 +28,7 @@ if [ ! -f $CERTFILE ]; then \
 	cat /tmp/astmanproxy-ssl.key /tmp/astmanproxy-ssl.crt >  /etc/asterisk/astmanproxy.pem
     rm /tmp/astmanproxy-ssl.*
 else
-	echo "${GREEN}  --> Found a certificate. Nothing to do here.${NC}"
+	echo -e "${GREEN}  --> Found a certificate. Nothing to do here.${NC}"
 fi
 
 echo ""
