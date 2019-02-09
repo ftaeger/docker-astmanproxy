@@ -23,6 +23,10 @@ On every start the container will perform two checks:
 
 So it's a bit fool-proof and every container will have its own, fresh certificate. Yeah it's self-signed but feel free to mount a .pem certificate to the container at "/etc/asterisk/astmanproxy.pem"
 
+If required you can easily change the bit size of newly created SSL keys by setting the corresponding ENV:
+`-e "SSL_KEY_SIZE=2048"`
+
+
 
 # Data persistence
 
@@ -33,9 +37,8 @@ The content of /etc/asterisk will be hold in a volume per container so it persis
 
 # How to build/start the container
 
-1. change to the "build" directory of this repo
-2. `docker build -t astmanproxy:latest .`
-3. `docker run -d astmanproxy:latest`
+1. `docker build -t astmanproxy:latest .`
+2. `docker run -d astmanproxy:latest`
 
 
 
