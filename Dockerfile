@@ -42,6 +42,7 @@ RUN make && \
 # ---------------------------------------------------------------------
 
 FROM centos:7
+LABEL maintainer="florian@taeger.cc" version=1.0
 
 ENV ASTMANPROXY_PORT 1234
 ENV SSL_KEY_SIZE 1024
