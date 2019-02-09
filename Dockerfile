@@ -34,6 +34,10 @@ WORKDIR /astmanproxy/astmanproxy-${ASTMANPROXY_RELEASE}
 RUN make && \
     make install
 
+# remove SSL cert that was created by make install (I didn't want to mess with the Makefile)
+# still for security reason I don't want astmanproxy to start with a cert that was created during build ... 
+RUN rm -f /var/lib/asterisk/certs/proxy-server.pem
+
 
 # ---------------------------------------------------------------------
 #
