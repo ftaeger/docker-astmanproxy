@@ -33,9 +33,8 @@ The content of /etc/asterisk will be hold in a volume per container so it persis
 
 # How to build/start the container
 
-1. Change to the "build" directory
-2. `docker build -t astmanproxy:latest .`
-3. `docker run -d astmanproxy:latest`
+1. `docker build -t astmanproxy:latest .`
+2. `docker run -d astmanproxy:latest`
 
 
 
