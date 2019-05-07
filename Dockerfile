@@ -84,4 +84,4 @@ EXPOSE $ASTMANPROXY_PORT
 COPY ./docker-entrypoint.sh /
 RUN chmod +x /docker-entrypoint.sh
 ENTRYPOINT ["/docker-entrypoint.sh"]
-CMD [ "/astmanproxy/astmanproxy", "-ddddd" ]
+CMD [ "/astmanproxy/astmanproxy", "-d" ]
