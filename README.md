@@ -49,7 +49,7 @@ Run the container with a local directory mounted to /etc/asterisk:
 1. Create a directory on the docker host to hold your files. For example "/docker/docker-astmanproxy/config"
 2. There should be 3 files in this directory: astmanproxy.conf, astmanproxy.users and astmanproxy-ssl.conf - you can use the example files from the build directory. 
 3. If required also put the astmanproxy.pem file into this directory. If not it will just be created on the first container startup. I've added the command to have a 2048 bit SSL key generated in the 4th step for reference ...
-4. `docker run --name=astmanproxy -d -e "SSL_KEY_SIZE=2048" -v /docker/docker-astmanproxy/config:/etc/asterisk astmanproxy:latest`
+4. `docker run --name=astmanproxy -d -e "SSL_KEY_SIZE=2048" -v /docker/astmanproxy/config:/etc/asterisk ftaeger/astmanproxy:latest`
 
 
 Beware: the Container will be build and then started. But it will exit after a few seconds. This is most probably as you've not replaced the config files and astmanproxy tries to connect to asterisk on localhost with invalid credentials. Be sure to throw in proper configs.  
